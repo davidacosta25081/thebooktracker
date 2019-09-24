@@ -19,7 +19,7 @@ def index
   def create
     @book = Book.create(book_params)
     @book.reviews.last.user = current_user
-    if @book.save!
+    if @book.save
        redirect_to book_path(@book)
     else
       render :new
@@ -33,9 +33,15 @@ def index
   end
 
 
+  def edit 
+	@book = Book.find(params[:id])
+  end 
 
-
-
+  def update 
+  	@book = Book.find(params[:id])
+  	@book.update(book_params)
+  	redirect_to book_path(@book)
+  end 	
 
 
 private

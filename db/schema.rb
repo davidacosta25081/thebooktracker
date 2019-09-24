@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 2019_09_19_155237) do
     t.string "title"
     t.string "author_first_name"
     t.string "author_last_name"
+    t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_books_on_genre_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_155237) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "books", "genres"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end
