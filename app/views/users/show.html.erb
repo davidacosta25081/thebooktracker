@@ -1,0 +1,20 @@
+<h1> Hi <%= @user.name %> ! <h1>
+
+
+ <h4>Here are a few things you could do :<h4>
+
+
+
+
+
+
+<%= button_to "All Books", books_path, :method => "get"%>
+
+<%= button_to "Your Books", user_books_path(current_user.id), :method => "get"%>
+
+
+<%= button_to "New Books", new_user_book_path(current_user.id), :method => "get"%>
+
+
+
+<%= button_to "Add review", new_user_review_path(current_user.id), :method => "get"%>

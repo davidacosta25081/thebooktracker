@@ -1,3 +1,22 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root  'welcome#home'
+  
+  get '/auth/facebook/callback' => 'sessions#create'
+  get     'login',            to: 'sessions#new'
+  post    'login',            to: 'sessions#create'
+  delete    'logout',           to: 'sessions#destroy'
+
+  resources :users
+  resources :genres
+  resources :reviews
+  resources :books
+
+
+  resources :users do
+    resources :books 
+    resources :reviews
+  end
+
+
 end

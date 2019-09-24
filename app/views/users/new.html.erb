@@ -1,0 +1,26 @@
+<h1>Sign up</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <%= form_for @user do |f| %>
+
+    
+
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: 'form-control' %><br>
+
+      <%= f.label :email %><br>
+      <%= f.text_field :email, class: 'form-control' %><br>
+
+      <%= f.label :password  %><br>
+      <%= f.password_field :password, class: 'form-control' %><br>
+
+      <%= f.label :password_confirmation, "Password Confirmation" %><br>
+      <%= f.password_field :password_confirmation, class: 'form-control' %><br><br>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %><br>
+      <br><p>Already a member ? <%= link_to "Log In", login_path %></p>
+
+      <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+    <% end %>
+  </div>
+</div>
