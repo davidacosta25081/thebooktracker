@@ -3,7 +3,6 @@ class BooksController < ApplicationController
 def index
     if params[:user_id]
       @books = User.find(params[:user_id]).books
-      flash.now[:danger] = "You haven't added any books yet!" if @books.empty?
     else
       @books = Book.all
     end
@@ -42,6 +41,16 @@ def index
   	@book.update(book_params)
   	redirect_to book_path(@book)
   end 	
+
+
+ def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    flash[:danger] = "book Deleted"
+    redirect_to user_path(current_user.id)
+  end
+
+
 
 
 private

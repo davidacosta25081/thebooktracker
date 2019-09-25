@@ -3,10 +3,17 @@
 <h3> Author Last name : <%= @book.author_last_name %></h3>
 <h3>Author First name : <%= @book.author_first_name %></h3>
 <h3>Genre : <%= @book.genre_name %></h3>
+____________________________________________
+ 
+<br>
 <% @book.reviews.each do |rv| %>
-<br><h3>Review by: <%= rv.user.name %><h3>
+____________________________________________
+<h3>Review by: <%= rv.user.name %><h3>
 <h3>Review : <%= rv.content %></h3><br>
- <%= link_to "Edit", edit_book_path(@book) %>
 
-
+<% if logged_in? && rv.user.id == current_user.id %>
+<%= link_to "Edit Review", edit_review_path(rv.id) %><br><br><br>
+<%= link_to 'Delete', review_path(rv), method: :delete, data: { confirm: 'Are you sure?' } %> 
 <% end %>
+<% end %>
+
