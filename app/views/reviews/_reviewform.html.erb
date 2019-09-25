@@ -1,5 +1,5 @@
-   <%= form_for @review do |f| %>
-
+  <%= form_for @review do |f| %>
+   <%= f.error_messages %>
   
   <%= f.label :book %><br>
   <%= f.collection_select(:book_id, Book.all, :id, :title) %><br>
