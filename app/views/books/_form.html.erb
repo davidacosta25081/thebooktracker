@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @book do |f| %>
@@ -26,3 +27,9 @@
     <% end %>
   </div>
 </div>
+
+<br>
+<% if @book.errors.any? %>
+<p> Your form could not be saved because : <p>
+  <%= @book.errors.full_messages %>
+<% end %>

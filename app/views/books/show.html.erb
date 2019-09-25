@@ -12,8 +12,8 @@ ____________________________________________
 <h3>Review : <%= rv.content %></h3><br>
 
 <% if logged_in? && rv.user.id == current_user.id %>
-<%= link_to "Edit Review", edit_review_path(rv.id) %><br><br><br>
-<%= link_to 'Delete', review_path(rv), method: :delete, data: { confirm: 'Are you sure?' } %> 
+<%= button_to "Edit Review", edit_review_path(rv.id), :method => "get"%><br>
+<%= button_to 'Delete', review_path(rv), method: :delete, data: { confirm: 'Are you sure?' } %> <br>
 <% end %>
 <% end %>
 

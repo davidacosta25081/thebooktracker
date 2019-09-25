@@ -1,5 +1,9 @@
 
-Book reviewed : <%= @review.book.title %>
-<p><%= @review.user.email%></p>
-<p><%= @review.content%></p>
+
+<br>
+<h2>Book reviewed : <%= link_to @review.book.title, book_path(@review.book) %><h2>
+
+<br>
+<h2> Review : <h2>
+<h2><%= @review.content%></h2>
 

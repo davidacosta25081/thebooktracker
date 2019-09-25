@@ -24,3 +24,10 @@
     <% end %>
   </div>
 </div>
+
+
+ <br>
+<% if @user.errors.any? %>
+<p> You could not Sign in because : <p>
+  <%= @user.errors.full_messages %>
+<% end %>

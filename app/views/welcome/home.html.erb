@@ -5,10 +5,10 @@
 
  <h4>Here are a few things you can do :<h4><br>
 
-<%= button_to "All Books   ", books_path, :method => "get"%><br>
-<%= button_to "Your Books", user_books_path(current_user.id), :method => "get"%><br>
-<%= button_to "New Books", new_user_book_path(current_user.id), :method => "get"%><br>
-<%= button_to "Add review", new_user_review_path(current_user.id), :method => "get"%>
+<%= button_to "  All Books   ", books_path, :method => "get"%><br>
+<%= button_to "  Your Books  ", user_books_path(current_user.id), :method => "get"%><br>
+<%= button_to "  New Books  ", new_user_book_path(current_user.id), :method => "get"%><br>
+<%= button_to "Create Review", new_user_review_path(current_user.id), :method => "get"%>
  
  <% else %>
     
