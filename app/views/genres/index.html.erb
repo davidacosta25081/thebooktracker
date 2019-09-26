@@ -1,0 +1,8 @@
+<br>
+<% @genres.each do |g| %>
+
+<br><%= g.name %><br>
+<% g.books.each do |b| %>
+<%=link_to b.title, book_path(b.id) %><br>
+<% end %>
+<% end %>

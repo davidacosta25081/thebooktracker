@@ -21,7 +21,7 @@ def valid_reg_user(user)
       flash[:success] = "Welcome Back #{user.name.capitalize}"
       redirect_to user_path(user)
     else
-      
+      flash.now[:danger] = "Invalid email/password combination."
       render :new
     end
   end

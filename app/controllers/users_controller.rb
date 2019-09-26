@@ -1,7 +1,17 @@
 class UsersController < ApplicationController
 
+  def index
+
+  end
+
+
   def new 
     @user = User.new
+  end 
+
+
+  def edit 
+
   end 
 
 
@@ -9,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 	if @user.save 
 	   log_in @user 
-	   flash[:success] = "Hey #{@user.name.capitalize}, welcome to TheBookTracker!"
+	   flash[:success] = "Welcome to TheBookTracker!"
 	   redirect_to user_path(@user)
 	else
 	   render :new 
@@ -21,7 +31,14 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end 
 
+  
+  def update
 
+  end
+
+  def destroy
+
+  end
 
 
 

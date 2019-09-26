@@ -1,22 +1,37 @@
-<div class="jumbotron">
+
+
+  
   <% if logged_in? %>
-    <h1> Hi <%= current_user.name %> ! <h1>
+    
+<h1> Hi <%= current_user.name %> ! <h1>
 
 
- <h4>Here are a few things you can do :<h4><br>
+ <h4>Here are a few things you can do :<h4>
 
-<%= button_to "  All Books   ", books_path, :method => "get"%><br>
+
+
+
+
+
+<%= button_to "  All Books  ", books_path, :method => "get"%><br>
+
 <%= button_to "  Your Books  ", user_books_path(current_user.id), :method => "get"%><br>
+
+<%= button_to "Books by Genre", genres_path, :method => "get"%><br>
+
+
 <%= button_to "  New Books  ", new_user_book_path(current_user.id), :method => "get"%><br>
+
+
 <%= button_to "Create Review", new_user_review_path(current_user.id), :method => "get"%>
- 
- <% else %>
+
+
+  <% else %>
     
     <h1>Welcome to TheBookTracker</h1>
-    <p class="lead">
-      You must sign in or sign up before you can access the Books !
-    </p>
     
-    </div>
+      <h4>You must sign in or sign up before you can access the Books !<h4>
+   
+    
+
   <% end %>
-</div>
