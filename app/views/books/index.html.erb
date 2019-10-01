@@ -7,7 +7,7 @@
 <% else %> 
 
 <h1> Books : <h1><br>
-<% @books.each do |book| %>
+<% @books.order_by_title.each do |book| %>
   <h2><%= link_to book.title, book_path(book) %></h2>
 <% end %>
 <% end %>
