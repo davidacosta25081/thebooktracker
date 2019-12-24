@@ -1,11 +1,8 @@
 class BooksController < ApplicationController
 
 def index
-    if params[:user_id]
-      @books = User.find(params[:user_id]).books
-    else
-      @books = Book.all
-    end
+    @books = Book.all
+    render json: @books
   end
 
 
@@ -19,7 +16,7 @@ def index
     @book = Book.create(book_params)
     @book.reviews.last.user = current_user
     if @book.save
-       redirect_to book_path(@book)
+       render json: @book
     else
       render :new
     end

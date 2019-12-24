@@ -6,18 +6,12 @@ class Book < ApplicationRecord
 
   has_many :reviews
   has_many :users, through: :reviews
-  belongs_to :genre
+
   accepts_nested_attributes_for :reviews
   
   scope :order_by_title, -> {order(title: :asc)}
 
-  def genre_name=(name)
-    self.genre = Genre.find_or_create_by(name: name)
-  end
- 
-  def genre_name
-    self.genre ? self.genre.name : nil
-  end
+  
 
 
 end
